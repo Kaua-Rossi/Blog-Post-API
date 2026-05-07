@@ -1,4 +1,5 @@
-﻿using VSAProject.API.Common;
+﻿using Microsoft.EntityFrameworkCore;
+using VSAProject.API.Common;
 
 namespace VSAProject.API.Features.DeletePost
 {
@@ -8,7 +9,7 @@ namespace VSAProject.API.Features.DeletePost
 
         public async Task<bool> Handle(int id)
         {
-            var post = _db.Posts.First(p => p.Id == id);
+            var post = await _db.Posts.FirstOrDefaultAsync(p => p.Id == id);
             if (post == null)
             {
                 return false;
