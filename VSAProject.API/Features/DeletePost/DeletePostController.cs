@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VSAProject.API.Features.GetPostById;
 
 namespace VSAProject.API.Features.DeletePost
 {
