@@ -1,0 +1,28 @@
+@VSAProject_API_HostAddress = http://localhost:5117
+
+GET {{VSAProject_API_HostAddress}}/api/posts
+
+###
+
+GET {{VSAProject_API_HostAddress}}/api/posts/3
+###
+
+POST {{VSAProject_API_HostAddress}}/api/posts
+Content-Type: application/json
+{
+  "title": "Post number 5",
+  "content": "another post"
+}
+
+###
+
+PUT {{VSAProject_API_HostAddress}}/api/posts/2
+Content-Type: application/json
+{
+  "title": "Post updated",
+  "content": "updating a existing post"
+}
+
+###
+
+DELETE {{VSAProject_API_HostAddress}}/api/posts/3
