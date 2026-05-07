@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using VSAProject.API.Common;
 using VSAProject.API.Domain;
 
@@ -9,11 +8,18 @@ namespace VSAProject.API.Features.UpdatePost
     {
         private readonly AppDbContext _db = db;
 
-        public async Task<Post> Handle(int Id, Post updatedPost)
+        public async Task<Post?> Handle(int Id, UpdatePostRequest updatedPost)
         {
-            var post = _db.Posts.First(p => p.Id == Id);
+            var post = await _db.Posts.FirstOrDefaultAsync(p => p.Id == Id);
+
+            if (post == null)
+            {
+                return post;
+            }
+
             post.Title = updatedPost.Title;
             post.Content = updatedPost.Content;
+
             await _db.SaveChangesAsync();
             return post;
         }

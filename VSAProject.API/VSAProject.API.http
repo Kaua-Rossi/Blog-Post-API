@@ -20,9 +20,9 @@ PUT {{VSAProject_API_HostAddress}}/api/posts/2
 Content-Type: application/json
 {
   "title": "Post updated",
-  "content": "updating a existing post"
+  "content": "updating a existing post!"
 }
 
 ###
 
-DELETE {{VSAProject_API_HostAddress}}/api/posts/3
+DELETE {{VSAProject_API_HostAddress}}/api/posts/4
