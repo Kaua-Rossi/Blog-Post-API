@@ -10,7 +10,7 @@ namespace VSAProject.API.Features.GetPosts
         public async Task<List<GetPostsResponse>> Handle()
         {
             var posts = await _db.Posts.ToListAsync();
-            return posts.Select(p => new GetPostsResponse(p.Id, p.Title, p.Content)).OrderBy(p => p.Id).ToList();
+            return posts.OrderBy(p => p.Id).Select(p => new GetPostsResponse(p.Id, p.Title, p.Content)).ToList();
         }
     }
 }
