@@ -1,4 +1,5 @@
-﻿using VSAProject.API.Common;
+﻿using Microsoft.EntityFrameworkCore;
+using VSAProject.API.Common;
 using VSAProject.API.Domain;
 
 namespace VSAProject.API.Features.GetPostById
@@ -8,6 +9,6 @@ namespace VSAProject.API.Features.GetPostById
         private readonly AppDbContext _db = db;
 
         public async Task<Post> Handle(int id) =>
-            _db.Posts.FirstOrDefault(p => p.Id == id);
+            await _db.Posts.FirstOrDefaultAsync(p => p.Id == id);
     }
 }
