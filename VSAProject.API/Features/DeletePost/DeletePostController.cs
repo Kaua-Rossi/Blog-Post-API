@@ -11,7 +11,9 @@ namespace VSAProject.API.Features.DeletePost
         [HttpDelete("{id}", Name = "DeletePost")]
         public async Task<IActionResult> DeletePost(int Id)
         {
-            await _handler.Handle(Id);
+            var result = await _handler.Handle(Id);
+            if (!result)
+                return NotFound();
             return NoContent();
         }
     }
